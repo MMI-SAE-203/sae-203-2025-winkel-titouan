@@ -1,11 +1,42 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
 ---
 
 <Layout>
-	<Welcome />
+
+	<main>
+		<img src="" alt="">
+		<h1>Ciné Flash 25</h1>
+		<p>Festival audiovisuel</p>
+
+		<button><a href="presentation">Présentation</a></button>
+
+		<h2>Du 9 au 10 août 2025</h2>
+
+		<p>
+			Que vous soyez passionnés de cinéma, curieux, amateurs, désireux de
+			découvrir le cinéma, ce festival est fait pour vous !
+		</p>
+		<button><a href="programme">Programme</a> </button>
+
+		<p>
+			Vous êtes actuellement étudiant et souhaitez venir ? Ciné Flash 25
+			met en place des tarifs spécial étudiants !
+		</p>
+		<button><a href="billetterie">Billetterie</a> </button>
+
+		<p>
+			Découvrez des artistes, spectacles et moments inoubliables. Plongez
+			dans l'univers unique de notre festival !
+		</p>
+		<button><a href="invites">Invités</a></button>
+
+		<p>
+			Explorez la sélection de courts métrages du festival : œuvres
+			captivantes, talents uniques et émotions garanties !
+		</p>
+		<button><a href="courts_metrages">Voir les courts métrages</a></button>
+	</main>
+
 </Layout>

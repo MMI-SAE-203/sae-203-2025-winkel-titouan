@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+<Layout>
+    <Header />
+
+    <main>
+
+        <h1>Contact</h1>
+        <h2>Formulaire de contact</h2>
+
+        <form action="mailto:contact@cinéflash25.fr" method="post" enctype="text/plain">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+            <br>
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required>
+            <br>
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" required></textarea>
+            <br>
+            <input type="submit" value="Envoyer">
+        </form>
+    </main>
+
+    <Footer />
+</Layout>
