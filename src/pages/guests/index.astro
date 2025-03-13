@@ -1,7 +1,37 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import { allInvites } from "../../js/backend.mjs";
+import Button from "../../components/Button.astro";
+
+const invites = await allInvites();
 ---
 
-<Layout> 
-    
+<Layout>
+    <h1 class="text-4xl font-bold mb-6 text-center mt-8">
+        Liste des invités
+    </h1>
+    {
+        invites.length > 0 ? (
+            <div>
+                {invites.map((invite) => (
+                    <div class="mb-4">
+                        <Card
+                            affiche={invite.photo}
+                            name={invite.nom}
+                            description={invite.biographie}
+                        />
+
+                        <Button
+                            variant="default"
+                            url={`/guests/${invite.id}`}
+                            text="Voir les détails"
+                        />
+                    </div>
+                ))}
+            </div>
+        ) : (
+            <p>Aucun court-métrage trouvé.</p>
+        )
+    }
 </Layout>

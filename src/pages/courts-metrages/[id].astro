@@ -1,0 +1,54 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getFilmById } from "../../js/backend.mjs";
+
+const { id } = Astro.params;
+const film = await getFilmById(id);
+
+if (!film) {
+    throw new Error("Film non trouvé");
+}
+---
+
+<Layout>
+    <div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">
+            Détails du Court-Métrage
+        </h1>
+        <div class="mt-4">
+            <h2 class="text-2xl font-semibold text-blue-600">
+                {film.titre}
+            </h2>
+            <img
+                src={film.affiche}
+                alt={`Affiche de ${film.titre}`}
+                class="w-full mt-4 mb-4"
+            />
+            <p class="mt-2 text-lg text-gray-700">{film.synopsis}</p>
+            <p class="mt-2 text-sm text-gray-500">
+                <strong>Durée :</strong>
+                {film.duree} minutes
+            </p>
+            <p class="mt-2 text-sm text-gray-500">
+                <strong>Bande-annonce :</strong>
+                <a
+                    href={film.lien_bande_annonce}
+                    target="_blank"
+                    class="text-blue-500 hover:text-blue-700 underline"
+                >
+                    Voir la bande-annonce
+                </a>
+            </p>
+            <p class="mt-2 text-sm text-gray-500">
+                <strong>Invité associé :</strong>
+                {film.invite ? film.invite.nom : "Aucun invité"}
+            </p>
+        </div>
+        <a
+            href="/courts-metrages"
+            class="mt-6 inline-block text-blue-500 hover:text-blue-700 underline"
+        >
+            Retour à la liste des courts-métrages
+        </a>
+    </div>
+</Layout>

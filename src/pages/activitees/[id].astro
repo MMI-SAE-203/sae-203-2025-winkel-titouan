@@ -1,0 +1,35 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getActivityById } from "../../js/backend.mjs";
+
+const { id } = Astro.params;
+const activity = await getActivityById(id);
+
+if (!activity) {
+    throw new Error("Activité non trouvée");
+}
+---
+
+<Layout>
+    <div class="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
+        <h1 class="text-3xl font-bold text-gray-900 mb-4">
+            Détails de l'Activité
+        </h1>
+        <div class="mt-4">
+            <h2 class="text-2xl font-semibold text-blue-600">
+                {activity.titre}
+            </h2>
+            <p class="mt-2 text-lg text-gray-700">{activity.description}</p>
+            <p class="mt-2 text-sm text-gray-500">
+                <strong>Date :</strong>
+                {activity.date}
+            </p>
+        </div>
+        <a
+            href="/activitees"
+            class="mt-6 inline-block text-blue-500 hover:text-blue-700 underline"
+        >
+            Retour à la liste des activités
+        </a>
+    </div>
+</Layout>

@@ -1,7 +1,39 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
+import { allFilms } from "../../js/backend.mjs";
+import Button from "../../components/Button.astro";
+
+const films = await allFilms();
 ---
 
-<Layout> 
-    
+<Layout>
+    <h1 class="text-4xl font-bold mb-6 text-center mt-8">
+        Liste des Courts-Métrages
+    </h1>
+    {
+        films.length > 0 ? (
+            <div>
+                {films.map((film) => (
+                    <div class="mb-4">
+                        <Card
+                            affiche={film.affiche}
+                            name={film.titre}
+                            description={film.synopsis}
+                            date={film.date_projection}
+                            duree={film.duree}
+                        />
+
+                        <Button
+                            variant="default"
+                            url={`/courts-metrages/${film.id}`}
+                            text="Voir les détails"
+                        />
+                    </div>
+                ))}
+            </div>
+        ) : (
+            <p>Aucun court-métrage trouvé.</p>
+        )
+    }
 </Layout>
