@@ -1,0 +1,37 @@
+---
+import { allActivitiesSortedByDate } from "../../js/backend.mjs";
+const activities = await allActivitiesSortedByDate();
+
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+    <h1 class="text-4xl font-bold mb-6 text-center mt-8">
+        Liste des Activités
+    </h1>
+
+    <div class="activities-list">
+        {
+            activities.length === 0 ? (
+                <p class="text-center text-xl">
+                    Aucune activité disponible pour le moment.
+                </p>
+            ) : (
+                <ul class="space-y-4">
+                    {activities.map((activitees) => (
+                        <li key={activitees.id} class="border p-4 rounded-lg">
+                            <h2 class="text-2xl font-semibold">
+                                {activitees.title}
+                            </h2>
+                            <p class="text-lg">{activitees.description}</p>
+                            <p class="text-gray-500">
+                                Date:{" "}
+                                {new Date(activitees.date).toLocaleDateString()}
+                            </p>
+                        </li>
+                    ))}
+                </ul>
+            )
+        }
+    </div>
+</Layout>

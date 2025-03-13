@@ -14,9 +14,10 @@ const {
 } = Astro.props;
 
 const variantClass = {
-    default: "border-indigo-100 bg-indigo-50",
-    dark: "border border-indigo-500 bg-indigo-500 text-white",
-    outlined: "border-indigo-200 bg-red",
+    dark: "border border-black bg-black text-white",
+    outlined: "border-black bg-red",
+    default: "border-4 border-[#F14900] bg-white mt-2 text-[#F14900] rounded-2xl ",
+
 };
 
 const sizeClass = {
@@ -28,7 +29,7 @@ const sizeClass = {
 
 <a
     href={url}
-    class={`inline-flex items-center gap-2 text-indigo-500 border-2 font-bold rounded-lg transition duration-300 ease-in-out ${variantClass[variant]} ${sizeClass[size]}`}
+    class={`inline-flex items-center gap-2 text-black border-2 font-bold rounded-lg transition duration-300 ease-in-out ${variantClass[variant]} ${sizeClass[size]}`}
 >
     <slot />
     {text}

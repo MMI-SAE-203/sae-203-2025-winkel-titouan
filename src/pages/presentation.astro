@@ -1,0 +1,99 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import photo_noir from "../assets/img/appareil-photo-fond-noir.png";
+import metro from "../assets/img/femme-qui-marche-métro.jpg";
+import appareil_photo from "../assets/img/appareil-photo-sol.jpg";
+import ornans1 from "../assets/img/Coucher_de_soleil_sur_la_Loue_à_Ornans 2.jpg";
+import ornans2 from "../assets/img/ornan-vue-dessus.png";
+import peinture from "../assets/img/peinture-gustave-courbet.jpg";
+import Button from "../components/Button.astro";
+---
+
+<Layout class="container mx-auto p-6 text-center lg:px-6">
+    <h1 class="text-4xl font-bold mb-6 text-center mt-8">Présentation</h1>
+
+    <h2 class="text-2xl font-semibold mt-8 text-center">Thème du festival</h2>
+    <p class="mt-4 max-w-2xl mx-auto px-4 sm:px-6 md:px-12">
+        Le festival se distingue par son concept dynamique, en mettant à
+        l'honneur les films courts et des courts métrages. Les productions
+        capturent la rapidité, l'énergie et l'innovation du septième art.
+    </p>
+    <Image
+        src={photo_noir}
+        alt="Appareil photo sur fond noir"
+        class="mx-auto my-4"
+    />
+    <p class="max-w-2xl mx-auto px-4 sm:px-6 md:px-12">
+        La programmation variée et en plein air inclut une large sélection de
+        courts-métrages de différents genres, comme des Drames, Comédies,
+        Action… et d’autres encore.
+    </p>
+
+    <h2 class="text-2xl font-semibold mt-8 text-center">
+        Un festival pour tout le monde
+    </h2>
+    <p class="mt-4 max-w-2xl mx-auto px-4 sm:px-6 md:px-12">
+        Que vous soyez passionnés de cinéma, curieux, amateurs, désireux de
+        découvrir le cinéma en un format rapide, ce festival est fait pour vous.
+    </p>
+    <Image src={metro} alt="Femme qui marche" class="mx-auto my-4" />
+    <p class="max-w-2xl mx-auto px-4 sm:px-6 md:px-12">
+        Les projections, qui ont souvent lieu en plein air, créent une
+        atmosphère conviviale et sympathique, renforçant le lien entre le public
+        et les films présentés.
+    </p>
+
+    <h2 class="text-2xl font-semibold mt-8 text-center">
+        Un évènement plein d’énergie
+    </h2>
+    <p class="mt-4 max-w-2xl mx-auto px-4 sm:px-6 md:px-12">
+        L’énergie incarne le rythme dynamique des courts-métrages présentés lors
+        de Ciné Flash 25.
+    </p>
+    <Image
+        src={appareil_photo}
+        alt="Appareil photo sur le sol"
+        class="mx-auto my-4"
+    />
+    <p class="max-w-2xl mx-auto px-4 sm:px-6 md:px-12">
+        Chaque film est conçu pour être percutant, condensant son message en un
+        format court mais intense. Cette valeur reflète aussi l’idée que le
+        festival lui-même est un événement vibrant et plein de vie.
+    </p>
+    <div class="flex justify-center mt-4">
+        <Button variant="default" url="" text="Teaser du festival" />
+    </div>
+
+    <h2 class="text-2xl font-semibold mt-8 text-center">
+        Ornans, le cadre parfait
+    </h2>
+    <p class="mt-4 max-w-2xl mx-auto px-4 sm:px-6 md:px-12">
+        Située dans la vallée de la Loue, Ornans est entourée de paysages
+        magnifiques (montagnes, rivières, et nature verdoyante). Ces décors
+        offrent un cadre exceptionnel pour des projections en plein air.
+    </p>
+    <Image src={ornans1} alt="Vue d'Ornans" class="mx-auto my-4" />
+    <p class="max-w-2xl mx-auto px-4 sm:px-6 md:px-12">
+        Ornans, charmante commune nichée au cœur du Doubs, est une destination
+        idéale pour les amoureux de nature et de patrimoine. Surnommée "la
+        petite Venise du Doubs" en raison de sa rivière qui serpente à travers
+        la ville, Ornans séduit par ses paysages pittoresques et son ambiance
+        authentique.
+    </p>
+    <Image src={ornans2} alt="Peinture " class="mx-auto my-4" />
+    <p class="max-w-2xl mx-auto px-4 sm:px-6 md:px-12">
+        Célèbre pour avoir vu naître le peintre Gustave Courbet, la ville
+        propose un riche héritage artistique, notamment à travers le Musée
+        Courbet, où l'on découvre ses œuvres majeures et l’histoire de sa vie.
+    </p>
+    <Image
+        src={peinture}
+        alt="Peinture de Gustave Courbet"
+        class="mx-auto my-4"
+    />
+
+    <div class="flex justify-center mt-4 mb-8">
+        <Button variant="default" url="billetterie" text="Billetterie" />
+    </div>
+</Layout>
