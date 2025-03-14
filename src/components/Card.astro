@@ -1,43 +1,25 @@
 ---
-const {
-    name,
-    description,
-    date,
-    affiche,
-    titre,
-    duree,
-    collectionId,
-    recordId,
-} = Astro.props;
+const { name, description, date, affiche, duree } = Astro.props;
 
-const baseUrl = "http://127.0.0.1:8090";
-
-const afficheUrl = affiche
-    ? `${baseUrl}/api/files/${collectionId}/${recordId}/${affiche}`
-    : "/placeholder.jpg"; 
-
-console.log("Affiche URL:", afficheUrl);
-console.log("Collection ID:", collectionId, "Record ID:", recordId);
-
-const collectionSlug = collectionId
-    ? String(collectionId).toLowerCase()
-    : "default";
+const pocketBaseUrl = "https://sae203.titouan-winkel.fr"; // Remplace par ton URL PocketBase
+const collectionName = "films"; // Nom de ta collection
 ---
 
-<a
-    href={`/${collectionSlug}/${recordId}`}
-    class="block bg-white shadow-lg rounded-lg overflow-hidden"
->
-    <div class="bg-white shadow-md rounded-lg p-4 border border-gray-200">
-        <img
-            src={afficheUrl}
-            alt={titre || "Image indisponible"}
-            class="w-full h-48 object-cover rounded-t-lg"
-            loading="lazy"
-        />
-        <h2 class="text-lg font-bold text-gray-900 mt-4">{name}</h2>
-        <p class="text-gray-700 mt-2">{description}</p>
-        <p class="text-sm text-gray-500 mt-2"><strong>Date :</strong> {date}</p>
-        <p class="text-sm text-gray-500 mt-2">{duree}</p>
-    </div>
-</a>
+<section>
+    {
+        affiche ? (
+            <img
+                src={`${pocketBaseUrl}/api/files/${collectionName}/${affiche}`}
+                alt={name}
+                width="300"
+            />
+        ) : null
+    }
+</section>
+
+<div class="bg-white shadow-md rounded-lg p-4 border border-gray-200">
+    <h2 class="text-lg font-bold text-gray-900 mt-4">{name}</h2>
+    <p class="text-gray-700 mt-2">{description}</p>
+    <p class="text-sm text-gray-500 mt-2">{date}</p>
+    <p class="text-sm text-gray-500 mt-2">{duree}</p>
+</div>

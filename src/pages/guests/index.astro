@@ -18,6 +18,7 @@ const invites = await allInvites();
                     <div class="mb-4">
                         <Card
                             affiche={invite.photo}
+                            
                             name={invite.nom}
                             description={invite.biographie}
                         />
@@ -31,7 +32,7 @@ const invites = await allInvites();
                 ))}
             </div>
         ) : (
-            <p>Aucun court-métrage trouvé.</p>
+            <p>Aucun invité trouvé.</p>
         )
     }
 </Layout>

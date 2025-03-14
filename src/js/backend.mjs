@@ -1,10 +1,10 @@
 import PocketBase from "pocketbase";
-const pb = new PocketBase("http://127.0.0.1:8090");
+const pb = new PocketBase("https://sae203.titouan-winkel.fr:443");
 
 export default pb;
 
 export function getImageUrl(record, field) {
-    return `http://localhost:8090/api/files/${record.collectionId || 'films'}/${record.id}/${record[field]}`;
+    return `https://sae203.titouan-winkel.fr/api/files/${record.collectionId || 'films'}/${record.id}/${record[field]}`;
 }
 
 export async function allFilmsSortedByDate() {

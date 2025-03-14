@@ -17,7 +17,11 @@ const films = await allFilms();
                 {films.map((film) => (
                     <div class="mb-4">
                         <Card
-                            affiche={film.affiche}
+                            affiche={
+                                film.affiche
+                                    ? `${film.id}/${film.affiche}`
+                                    : null
+                            }
                             name={film.titre}
                             description={film.synopsis}
                             date={film.date_projection}
